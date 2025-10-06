@@ -2,7 +2,11 @@
   "name": "@jdchat/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky",
+    "lint": "eslint .",
+    "format": "prettier --write \"apps/**/*.ts\""
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^11.0.0",
@@ -30,6 +34,7 @@
     "@types/node": "20.19.9",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "husky": "^9.1.7",
     "nx": "21.6.3",
     "prettier": "^2.6.2",
     "tslib": "^2.3.0",

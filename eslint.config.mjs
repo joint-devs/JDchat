@@ -1,53 +1,52 @@
-import nx from "@nx/eslint-plugin";
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+// import prettierPlugin from 'eslint-plugin-prettier';
+// import prettierConfig from 'eslint-config-prettier';
+// import jestPlugin from 'eslint-plugin-jest';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-    ...nx.configs["flat/base"],
-    ...nx.configs["flat/typescript"],
-    ...nx.configs["flat/javascript"],
-    {
-        ignores: [
-            "**/dist"
-        ]
+  {
+    files: ['**/*.{js,mjs,cjs,ts}'],
+    ignores: ['docs/.astro/*', '**/node_modules/**', '**/dist/**', '**/webpack.config.js'],
+    languageOptions: {
+      parser: tsParser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
+      },
     },
-    {
-        files: [
-            "**/*.ts",
-            "**/*.tsx",
-            "**/*.js",
-            "**/*.jsx"
-        ],
-        rules: {
-            "@nx/enforce-module-boundaries": [
-                "error",
-                {
-                    enforceBuildableLibDependency: true,
-                    allow: [
-                        "^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$"
-                    ],
-                    depConstraints: [
-                        {
-                            sourceTag: "*",
-                            onlyDependOnLibsWithTags: [
-                                "*"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
+    plugins: {
+      '@typescript-eslint': tseslint,
+      //   'prettier': prettierPlugin,
+      //   'jest': jestPlugin,
     },
-    {
-        files: [
-            "**/*.ts",
-            "**/*.tsx",
-            "**/*.cts",
-            "**/*.mts",
-            "**/*.js",
-            "**/*.jsx",
-            "**/*.cjs",
-            "**/*.mjs"
-        ],
-        // Override or add rules here
-        rules: {}
-    }
+    rules: {
+      ...pluginJs.configs.recommended.rules,
+      ...tseslint.configs.recommended.rules,
+      //   ...jestPlugin.configs.recommended.rules,
+      //   'prettier/prettier': [
+      //     'error',
+      //     {
+      //       endOfLine: 'auto',
+      //     },
+      //   ],
+    },
+  },
+  {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      sourceType: 'commonjs',
+    },
+  },
+  //   {
+  //     rules: {
+  //       ...prettierConfig.rules, // Disable ESLint rules that conflict with Prettier
+  //     },s
+  //   },
 ];
