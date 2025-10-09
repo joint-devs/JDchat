@@ -118,3 +118,4 @@ vitest.config.*.timestamp*
 test-output
 
 **/.env
+package-lock.json
