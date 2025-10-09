@@ -5,6 +5,12 @@
   "references": [
     {
       "path": "./apps/chat-server"
+    },
+    {
+      "path": "./apps/chat-client-e2e"
+    },
+    {
+      "path": "./apps/chat-client"
     }
   ]
 }

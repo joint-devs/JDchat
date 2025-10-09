@@ -2,15 +2,19 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-// import prettierPlugin from 'eslint-plugin-prettier';
-// import prettierConfig from 'eslint-config-prettier';
-// import jestPlugin from 'eslint-plugin-jest';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
-    ignores: ['docs/.astro/*', '**/node_modules/**', '**/dist/**', '**/webpack.config.js'],
+    ignores: [
+      'docs/.astro/*',
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/webpack.config.js',
+      '**/*.cy*',
+      '**/*.po*',
+      '**/commands.ts',
+    ],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 'latest',
@@ -44,9 +48,7 @@ export default [
       sourceType: 'commonjs',
     },
   },
-  //   {
-  //     rules: {
-  //       ...prettierConfig.rules, // Disable ESLint rules that conflict with Prettier
-  //     },s
-  //   },
+  {
+    ignores: ['**/vite.config.*.timestamp*', '**/vitest.config.*.timestamp*'],
+  },
 ];
