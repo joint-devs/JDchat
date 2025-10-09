@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "deploy": "nx run prisma:deploy",
+    "migrate": "nx run prisma:migrate",
+    "generate": "nx run prisma:generate-types",
+    "prisma": "nx run prisma:prisma format",
     "prepare": "husky",
     "lint": "eslint .",
     "format": "prettier --write \"apps/**/*.ts\""
@@ -12,7 +16,9 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@prisma/client": "^6.17.0",
     "axios": "^1.6.0",
+    "prisma": "^6.17.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "~0.79.3",
