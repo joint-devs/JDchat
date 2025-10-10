@@ -7,9 +7,6 @@
       "path": "./apps/chat-server"
     },
     {
-      "path": "./apps/chat-client-e2e"
-    },
-    {
       "path": "./apps/chat-client"
     },
     {
@@ -17,6 +14,12 @@
     },
     {
       "path": "./libs/prisma"
+    },
+    {
+      "path": "./apps/auth-server"
+    },
+    {
+      "path": "./apps/static-server"
     }
   ]
 }
