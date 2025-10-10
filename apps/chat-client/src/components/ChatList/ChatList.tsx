@@ -3,6 +3,7 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { Chat, ERoutes } from '@/types';
 import { styles } from './ChatList.style';
 import { useNavigation } from '@react-navigation/native';
+import { formatLastMessageTime } from './utils/formatLastMessageTime';
 
 interface ChatListProps {
   chats: Chat[];
@@ -10,23 +11,6 @@ interface ChatListProps {
 
 export const ChatList: React.FC<ChatListProps> = ({ chats }) => {
   const navigate = useNavigation();
-
-  const formatLastMessageTime = (date: Date): string => {
-    const now = new Date();
-    const diff = now.getTime() - date.getTime();
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-    if (days === 0) {
-      return date.toLocaleTimeString('ru-RU', {
-        hour: '2-digit',
-        minute: '2-digit',
-      });
-    } else if (days === 1) {
-      return 'Вчера';
-    } else {
-      return date.toLocaleDateString('ru-RU');
-    }
-  };
 
   const renderChatItem = ({ item }: { item: Chat }) => (
     <TouchableOpacity
