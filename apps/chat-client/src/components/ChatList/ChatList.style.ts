@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Neon80sTheme } from '../../styles/Theme';
+import { Neon80sTheme } from '@/styles/Theme';
 
 export const styles = StyleSheet.create({
   list: {
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   avatarText: {
     color: Neon80sTheme.colors.text.primary,
-    fontFamily: 'ArcadeClassic',
+    fontFamily: 'monospace',
     fontSize: 18,
   },
   chatInfo: {
@@ -36,13 +36,13 @@ export const styles = StyleSheet.create({
   },
   chatName: {
     color: Neon80sTheme.colors.text.primary,
-    fontFamily: 'ArcadeClassic',
+    fontFamily: 'monospace',
     fontSize: 16,
   },
   time: {
     color: Neon80sTheme.colors.text.secondary,
     fontSize: 12,
-    fontFamily: 'Digital7',
+    fontFamily: 'monospace',
   },
   chatPreview: {
     flexDirection: 'row',
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
   lastMessage: {
     color: Neon80sTheme.colors.text.secondary,
     fontSize: 14,
-    fontFamily: 'Digital7',
+    fontFamily: 'monospace',
     flex: 1,
   },
   unreadBadge: {
@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
   unreadText: {
     color: Neon80sTheme.colors.text.primary,
     fontSize: 12,
-    fontFamily: 'Digital7',
+    fontFamily: 'monospace',
     fontWeight: 'bold',
   },
 });

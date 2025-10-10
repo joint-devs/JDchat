@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Neon80sTheme } from '../../styles/Theme';
+import { Neon80sTheme } from '@/styles/Theme';
 
 export const styles = StyleSheet.create({
   button: {

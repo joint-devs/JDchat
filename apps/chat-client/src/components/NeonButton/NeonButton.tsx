@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Text, TouchableOpacity } from 'react-native';
-import { Neon80sTheme } from '../../styles/Theme';
+import { Neon80sTheme } from '@/styles/Theme';
 import { styles } from './NeonButton.style';
 
 interface NeonButtonProps {

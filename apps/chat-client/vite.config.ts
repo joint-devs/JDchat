@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import * as esbuild from 'esbuild';
 import { readFileSync } from 'fs';
+import path from 'path';
 
 const extensions = [
   '.mjs',
@@ -40,6 +41,7 @@ export default defineConfig({
       'react-native': 'react-native-web',
       'react-native-svg': 'react-native-svg-web',
       '@react-native/assets-registry/registry': 'react-native-web/dist/modules/AssetRegistry/index',
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {

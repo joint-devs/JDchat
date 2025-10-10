@@ -3,20 +3,20 @@ import { NeonTheme } from '../types';
 
 export const Neon80sTheme: NeonTheme = {
   colors: {
-    primary: '#ff00ff',
-    secondary: '#00ffff',
-    accent: '#ffff00',
+    primary: '#aa28aaff',
+    secondary: '#2897aaff',
+    accent: '#aa9d28ff',
     background: {
-      primary: '#0a0a1f',
-      secondary: '#1a1a2fff',
-      tertiary: '#2a2a3f',
+      primary: '#000000ff',
+      secondary: '#0a0a0aff',
+      tertiary: '#1d1d1fff',
     },
     text: {
       primary: '#ffffff',
       secondary: '#cccccc',
-      neon: '#ff00ff',
+      neon: '#aa28aaff',
     },
-    border: '#ff00ff',
+    border: '#aa28aaff',
   },
   typography: {
     title: {

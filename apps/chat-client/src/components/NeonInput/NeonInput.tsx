@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
-import { Neon80sTheme } from '../../styles/Theme';
+import { Neon80sTheme } from '@/styles/Theme';
 import { styles } from './NeonInput.style';
 
 interface NeonInputProps extends TextInputProps {

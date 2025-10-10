@@ -1,14 +1,16 @@
 import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
-import { Chat } from '../../types';
+import { Chat, ERoutes } from '@/types';
 import { styles } from './ChatList.style';
+import { useNavigation } from '@react-navigation/native';
 
 interface ChatListProps {
   chats: Chat[];
-  onChatPress: (chat: Chat) => void;
 }
 
-export const ChatList: React.FC<ChatListProps> = ({ chats, onChatPress }) => {
+export const ChatList: React.FC<ChatListProps> = ({ chats }) => {
+  const navigate = useNavigation();
+
   const formatLastMessageTime = (date: Date): string => {
     const now = new Date();
     const diff = now.getTime() - date.getTime();
@@ -27,7 +29,10 @@ export const ChatList: React.FC<ChatListProps> = ({ chats, onChatPress }) => {
   };
 
   const renderChatItem = ({ item }: { item: Chat }) => (
-    <TouchableOpacity style={styles.chatItem} onPress={() => onChatPress(item)}>
+    <TouchableOpacity
+      style={styles.chatItem}
+      onPressOut={() => navigate.navigate(...([ERoutes.CHAT, { chatId: item.id }] as never))}
+    >
       <View style={styles.avatar}>
         <Text style={styles.avatarText}>
           {item.participants[0]?.username?.charAt(0).toUpperCase()}
